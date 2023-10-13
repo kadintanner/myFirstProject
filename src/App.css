@@ -1,0 +1,27 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+#sticky-note {
+  height: 300px;
+  width: 300px;
+  background-color: lightgoldenrodyellow;
+}
+
+#delete-button {
+  height: 40px;
+  width: 100px;
+  /* color: black;
+  background-color: transparent */
+  border-color: black
+}
+
+#text-input {
+  height: 400;
+  width: 180;
+  /* background-color: transparent;
+  border-color: transparent; */
+}
