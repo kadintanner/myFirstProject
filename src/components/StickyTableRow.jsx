@@ -1,6 +1,6 @@
 import StickyNote from "./StickyNote"
 
-const StickeyTableRow = () => {
+const StickeyTableRow = ({data}) => {
 
     return (
         <>
@@ -11,7 +11,9 @@ const StickeyTableRow = () => {
             <tr>
                 <StickyNote />
             </tr>
+
         </>
+            
     )
 }
 

@@ -1,12 +1,25 @@
 import AddNoteButton from "./AddNoteButton"
-import StickyTableColumn from "./StickyTableColumn"
+
 import StickyTableRow from "./StickyTableRow"
 import axios from 'axios'
+import { useState } from "react"
+
+let initialData = [
+    {id: 0, name: "note1"},
+    {id: 1, name: "note2"}
+]
 
 const StickyNoteTable = () => {
 
-    const addNote = async () => {
+    const [data, setData] = useState(initialData)
+    console.log(data)
 
+    const addNote = () => {
+        const newNote = {
+            id: 2,
+            name: "note3"
+        }
+        setData([...data, newNote])
     }
 
     const deleteNote = async () => {
@@ -18,15 +31,15 @@ const StickyNoteTable = () => {
         <div>
             <table>
                 <thead>
-                    <StickyTableColumn />
+                  
                 </thead>
 
                 <tbody>
-                    <StickyTableRow />
+                    <StickyTableRow data={data}/>
                 </tbody>
 
                 <tfoot>
-                    <AddNoteButton />
+                    <AddNoteButton addNoteFunc={addNote} />
                 </tfoot>
             </table>
         </div>

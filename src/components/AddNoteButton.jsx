@@ -1,9 +1,16 @@
-const AddNoteButton = () => {
+const AddNoteButton = ({addNoteFunc}) => {
 
     return (
         <tr>
             <td colSpan={4} >
-                <button>Add New Note</button>
+
+                <button
+                    id="add-button"
+                    onClick={addNoteFunc}
+                >
+                    Add New Note
+                </button>
+
             </td>
         </tr>
     )
