@@ -1,7 +1,12 @@
 import React from 'react';
+import deleteNote from './StickyTableRow';
 
-const StickyNote = () => {
+const StickyNote = ({ onDelete, id }) => {
+    const handleDelete = () => {
+        onDelete(id)
+    }
   return (
+    <>
     <td 
         colSpan={4}
         id='sticky-note'
@@ -14,8 +19,14 @@ const StickyNote = () => {
             <br></br>
             <br></br>
             <br></br>
-        <button id='delete-button'>Delete</button>
+        <button 
+            id='delete-button'
+            onClick={handleDelete}
+        >
+            Delete
+        </button>
     </td>
+    </>
   );
 }
 

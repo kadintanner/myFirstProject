@@ -1,19 +1,16 @@
 import StickyNote from "./StickyNote"
+import React from "react"
 
-const StickeyTableRow = ({data}) => {
+const StickeyTableRow = ({ data, onDelete }) => {
 
     return (
         <>
             <tr>
-                <StickyNote />
+                <td colSpan={4}>
+                    <StickyNote id={data.id} onDelete={onDelete} />
+                </td>
             </tr>
-
-            <tr>
-                <StickyNote />
-            </tr>
-
         </>
-            
     )
 }
 
