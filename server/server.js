@@ -10,8 +10,14 @@ app.use(express.static('public'))
 app.use(express.json())
 
 // import handler functions from controller.js
+import handlerFunctions from './controller.js'
 
 // input routes here:
+app.get('/getNote', handlerFunctions.getNote)
+app.post('/addNote', handlerFunctions.addNote)
+app.delete('/deleteNote/:id', handlerFunctions.deleteNote)
+app.put('/editNote/:id', handlerFunctions.editNote)
 
-ViteExpress.listen(app, 8488, () => console.log('D&C http://localhost:8488'))
+// Open up a door to the server
+ViteExpress.listen(app, 8488, () => console.log('http://localhost:8488'))
 

@@ -6,12 +6,16 @@ const StickyNote = ({ onDelete, id }) => {
         onDelete(id)
     }
   return (
-    <>
     <td 
-        colSpan={4}
+        colSpan={4} 
         id='sticky-note'
     >
-            <textarea id="text-area" rows="14" cols="10" wrap="soft"> </textarea>
+        <textarea 
+            id="text-area" 
+            rows="14" 
+            cols="10" 
+            wrap="soft"
+        />
             <br></br>
         <button 
             id='delete-button'
@@ -20,7 +24,6 @@ const StickyNote = ({ onDelete, id }) => {
             Delete
         </button>
     </td>
-    </>
   );
 }
 
