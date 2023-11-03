@@ -2,27 +2,30 @@ import AddNoteButton from "./AddNoteButton"
 
 import StickyTableRow from "./StickyTableRow"
 import axios from 'axios'
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 
-let initialData = [
-    {id: 0, name: "note1"}
-]
 
 const StickyNoteTable = () => {
 
-    const [data, setData] = useState(initialData)
+    const [data, setData] = useState([])
 
     const addNote = () => {
-        const newNote = {
-            id: data.length,
-            name: `note${data.length + 1}`
-        }
-        setData([...data, newNote])
+        axios.post('/addNote').then( (res) => {
+            setData(res.data)
+        })
     }
 
 const deleteNote = (id) => {
-    setData(data.filter(note => note.id !== id))
+    axios.delete(`/deleteNote/${id}`).then( (res) => {
+        setData(res.data)
+    })
 }
+
+useEffect( () => {
+    axios.get('/getNote').then( (res) => {
+        setData(res.data)
+    })
+},[])
 
     return (
         <div>

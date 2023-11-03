@@ -16,7 +16,7 @@ import handlerFunctions from './controller.js'
 app.get('/getNote', handlerFunctions.getNote)
 app.post('/addNote', handlerFunctions.addNote)
 app.delete('/deleteNote/:id', handlerFunctions.deleteNote)
-app.put('/editNote/:id', handlerFunctions.editNote)
+app.post('/saveNotes/:id', handlerFunctions.saveNotes)
 
 // Open up a door to the server
 ViteExpress.listen(app, 8488, () => console.log('http://localhost:8488'))

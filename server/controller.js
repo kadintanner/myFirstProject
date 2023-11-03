@@ -1,7 +1,7 @@
 let TEST_DATA = [
-    { id: 1, name: `note${data.length}` },
-    { id: 2, name: `note${data.length}` },
-    { id: 3, name: `note${data.length}` }
+    { id: 1, name: `note1`, note: 'hello' },
+    { id: 2, name: `note2`, note: 'world' },
+    { id: 3, name: `note3`, note: '007' }
 ]
 
 let globalId = 4
@@ -17,7 +17,7 @@ const handlerFunctions = {
         //creat a new object
         const newObj = {
             id: globalId,
-            name: `note${data.length}`
+            name: `note${globalId}`
         }
         console.log(newObj)
         //add this newObj to TEST_DATA
@@ -27,10 +27,10 @@ const handlerFunctions = {
         globalId++
 
         // send back the newObj
-        res.send(newObj)
+        res.send(TEST_DATA)
     },
 
-    deleteInvoice:  (req, res) => {
+    deleteNote:  (req, res) => {
         // need to grab id from params
         const id = req.params.id 
         
@@ -41,14 +41,12 @@ const handlerFunctions = {
 
     },
 
-    editNote: (req, res) => {
+    saveNotes: (req, res) => {
 
-        const { id } = req.params
+        const notes = req.body
+        TEST_DATA = notes
 
-        const index = TEST_DATA.findIndex(note => note.id == id)
-        const noteItem = TEST_DATA[index]
-
-        res.send(noteItem)
+        res.send(TEST_DATA)
 
     }
 }

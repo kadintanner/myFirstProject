@@ -7,7 +7,7 @@ const StickeyTableRow = ({ data, onDelete }) => {
         <>
             <tr>
                 <td colSpan={4}>
-                    <StickyNote id={data.id} onDelete={onDelete} />
+                    <StickyNote id={data.id} text={data.note} onDelete={onDelete} />
                 </td>
             </tr>
         </>
