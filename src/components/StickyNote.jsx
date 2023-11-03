@@ -1,7 +1,7 @@
 import React from 'react';
 import deleteNote from './StickyTableRow';
 
-const StickyNote = ({ onDelete, id, text }) => {
+const StickyNote = ({ onDelete, id, text, onValueChange }) => {
     const handleDelete = () => {
         onDelete(id)
     }
@@ -16,6 +16,7 @@ const StickyNote = ({ onDelete, id, text }) => {
             cols="10" 
             wrap="soft"
             value={text}
+            onChange={(e) => onValueChange(e.target.text)}
         />
             <br></br>
         <button 
